@@ -1,3 +1,12 @@
-#ansible set  day 26   may 19 05 2024
+#ansible installation
+# step 1
+sudo apt install software-properties-common
 
-# in this repo i have covered basic to  advance ansible
+#step 2 
+sudo add-apt-repository ppa:ansible/ansible --yes --update
+
+# step3
+sudo apt install ansible-core
+
+
+
