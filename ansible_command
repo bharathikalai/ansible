@@ -20,4 +20,4 @@ ansible all -i hosts -m apt -a "name=apache2 state=absent" --become
 
 ansible all -i hosts -a "uname -a"
 
-ansible all -i hosts -a "ping"
+ansible all -i hosts -a "ping"    #
