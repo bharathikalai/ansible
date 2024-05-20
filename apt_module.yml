@@ -1,0 +1,7 @@
+- name: Install a package on RPM-based systems
+  hosts: all
+  tasks:
+    - name: Install Apache
+      apt:
+        name: httpd
+        state: present

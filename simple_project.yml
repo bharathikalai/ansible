@@ -1,0 +1,29 @@
+# playbook.yml
+- name: Example playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: Test connectivity
+      ping:
+
+    - name: Ensure a directory exists
+      file:
+        path: /path/to/directory
+        state: directory
+        mode: '0755'
+
+    - name: Copy a file to the remote host
+      copy:
+        src: /path/to/local/file.txt
+        dest: /path/to/remote/file.txt
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: Ensure Apache is running
+      service:
+        name: apache2
+        state: started

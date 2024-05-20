@@ -1,0 +1,7 @@
+- name: Manage Git repositories on the remote host
+  hosts: all
+  tasks:
+    - name: Clone a Git repository
+      git:
+        repo: 'https://github.com/example/repo.git'
+        dest: /path/to/repo

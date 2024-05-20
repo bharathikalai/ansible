@@ -1,0 +1,5 @@
+- name: Run a shell command on the remote host
+  hosts: all
+  tasks:
+    - name: Create a directory using shell
+      shell: mkdir -p /tmp/testdir
