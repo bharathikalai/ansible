@@ -24,3 +24,6 @@ ansible all -i hosts -a "ping"    #
 
 
 ansible -m ping servers  try this command it will work
+
+
+ansible-playbook --syntax-check project.yml   #check the playbook syntax

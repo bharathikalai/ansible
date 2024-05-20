@@ -1,0 +1,96 @@
+file module
+
+absent: Ensures the file or directory is absent (deleted).
+present: Ensures the file or directory is present.
+directory: Ensures the path is a directory.
+touch: Ensures the file exists and updates the modification time.
+
+
+- name: Ensure directory exists
+  file:
+    path: /etc/my_app
+    state: directory
+
+- name: Ensure file is absent
+  file:
+    path: /etc/my_app/old_config.cfg
+    state: absent
+
+
+
+service Module
+
+started: Ensures the service is started.
+stopped: Ensures the service is stopped.
+restarted: Ensures the service is restarted.
+reloaded: Ensures the service is reloaded.
+enabled: Ensures the service is enabled to start at boot.
+disabled: Ensures the service is disabled at boot.
+
+
+- name: Ensure nginx is running and enabled
+  service:
+    name: nginx
+    state: started
+    enabled: true
+
+package Module
+
+present: Ensures the package is installed.
+absent: Ensures the package is not installed.
+latest: Ensures the package is installed and up-to-date.
+
+
+
+
+
+- name: Ensure latest version of curl is installed
+  package:
+    name: curl
+    state: latest
+
+- name: Ensure httpd is not installed
+  package:
+    name: httpd
+    state: absent
+
+
+
+
+user Module
+
+present: Ensures the user account exists.
+absent: Ensures the user account is removed.
+lock: Ensures the user account is locked.
+unlock: Ensures the user account is unlocked.
+
+
+- name: Ensure user 'john' exists
+  user:
+    name: john
+    state: present
+
+- name: Ensure user 'olduser' is removed
+  user:
+    name: olduser
+    state: absent
+
+
+git Module
+
+present: Ensures the repository is cloned and up-to-date.
+absent: Ensures the repository directory is removed.
+
+
+
+
+- name: Ensure my_repo is cloned
+  git:
+    repo: 'https://github.com/my_org/my_repo.git'
+    dest: /srv/my_repo
+    state: present
+
+- name: Ensure old_repo is removed
+  git:
+    dest: /srv/old_repo
+    state: absent

@@ -1,0 +1,7 @@
+-v : Verbose (basic debug information)
+-vv : More verbose (detailed debug information)
+-vvv : Even more verbose (connection details)
+-vvvv : Debug level (includes SSH connection details)
+-vvvvv : Extended debug level (includes more details, useful for troubleshooting deep issues)
+
+ debug command : ansible-playbook playbook.yml -v
