@@ -1,0 +1,51 @@
+Nested Groups
+
+[all:vars]
+ansible_user=username
+ansible_ssh_private_key_file=/path/to/private_key
+
+
+
+[webservers]
+hostname1
+hostname2
+
+[dbservers]
+hostname3
+
+[dev:children]
+webservers
+dbservers
+
+
+
+
+Grouping Hosts
+
+[webservers]
+hostname1
+hostname2
+
+[dbservers]
+hostname3
+
+
+
+
+Variable Assignments
+
+[webservers]
+hostname1 ansible_ssh_port=2222
+hostname2 ansible_ssh_port=2222
+
+
+
+Specifying Connection Parameters
+
+
+[webservers]
+hostname1 ansible_host=192.168.1.1 ansible_user=username ansible_ssh_private_key_file=/path/to/private_key
+
+[all:vars]
+ansible_connection=ssh
+

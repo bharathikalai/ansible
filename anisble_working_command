@@ -4,4 +4,24 @@
 -vvvv : Debug level (includes SSH connection details)
 -vvvvv : Extended debug level (includes more details, useful for troubleshooting deep issues)
 
- debug command : ansible-playbook playbook.yml -v
+ run playbook : ansible-playbook -i hosts.ini playbook.yml   
+
+ #note  -i this mean inventry file if you not mention -i in your command ansible will take inventry file as /etc/ansible/hosts this location
+
+ debug command : ansible-playbook -i playbook.yml -v
+
+
+
+sysntax check command : ansible-playbook --syntax-check playbook.yml
+
+
+
+list task: ansible-playbook --list-task playbook.yml
+
+
+dry run : ansible-playbook -i .ini playbook.yml --check
+
+
+
+
+ansible-inventory Command

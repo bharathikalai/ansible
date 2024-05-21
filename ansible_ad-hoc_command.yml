@@ -1,0 +1,108 @@
+Gather facts from remote hosts:
+ansible all -m setup -i hosts.ini
+
+
+Install a package on remote hosts:
+ansible all -m package -a "name=package_name state=present" -i hosts.ini --become
+
+
+Uninstall a package on remote hosts:
+ansible all -m package -a "name=package_name state=absent" -i hosts.ini --become
+
+
+Restart a Service:
+ansible all -m package -a "name=package_name state=restarted" -i hosts.ini --become
+
+
+Start a Service:
+ansible <host_pattern> -m service -a "name=<service_name> state=started"
+
+
+Stop a Service:
+ansible <host_pattern> -m service -a "name=<service_name> state=stopped"
+
+
+
+#note
+-a is for specify the argument
+
+
+ping:
+ansible all -m ping -i inventory.ini
+
+
+
+Copy a file to remote hosts:
+
+ansible all -m copy -a "src=/path/to/local/file dest=/path/to/remote/file" -i hosts.ini
+
+
+#list port 
+ansible <host_pattern> -m shell -a "netstat -tuln"
+
+
+#check available memory: 
+ansible <host_pattern> -m shell -a "free -h"
+
+
+Check Installed Packages:
+ansible <host_pattern> -m shell -a "dpkg -l"    # For Debian/Ubuntu
+
+
+
+Run a Shell Command:
+
+ansible <host_pattern> -m shell -a "<shell_command>"
+
+
+
+
+Check System Architecture:
+ansible <host_pattern> -m setup -a "filter=ansible_architecture"
+
+
+#by using fileter argument we can fileter the data
+ansible all -m setup -i hosts.ini  the main command
+
+
+Check File Permissions:
+ansible <host_pattern> -m shell -a "ls -l <file_path>"
+
+
+#copy module
+ansible <host_pattern> -m copy -a "src=<source_directory> dest=<destination_directory>"
+
+#fetch module
+ansible <host_pattern> -m fetch -a "src=<remote_file_path> dest=<local_directory>"
+
+#file module
+ansible <host_pattern> -m file -a "path=<directory_path> state=directory"
+
+ansible <host_pattern> -m file -a "path=<file_path> state=absent"
+
+
+#user module
+ansible <host_pattern> -m user -a "name=<username> state=present"
+
+ansible <host_pattern> -m file -a "path=<file_path> mode=<permission_mode>"
+
+
+
+Execute a Command with sudo (using command module with become):
+ansible <host_pattern> -m command -a "<command>" --become
+
+
+
+Synchronize Directories (using synchronize module):
+
+ansible <host_pattern> -m synchronize -a "src=<source_directory> dest=<destination_directory>"
+
+
+Manage System Services (using systemd module):
+ansible <host_pattern> -m systemd -a "name=<service_name> state=started"
+
+
+
+Manage Cron Jobs (using cron module):
+
+ansible <host_pattern> -m cron -a "name=<job_name> minute=<minute> hour=<hour> job=<command>"
