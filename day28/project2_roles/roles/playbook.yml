@@ -1,0 +1,6 @@
+# playbooks/site.yml
+---
+- name: Configure web servers
+  hosts: webservers
+  roles:
+    - webserver

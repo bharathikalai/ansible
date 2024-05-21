@@ -1,0 +1,22 @@
+# roles/webserver/tasks/main.yml
+---
+- name: Install Apache
+  apt:
+    name: apache2
+    state: present
+
+- name: Copy configuration file
+  template:
+    src: webserver.conf.j2
+    dest: /etc/apache2/sites-available/000-default.conf
+  notify:
+    - Restart Apache
+
+- name: Enable site
+  command: a2ensite 000-default
+
+- name: Ensure Apache is running
+  service:
+    name: apache2
+    state: started
+    enabled: yes
