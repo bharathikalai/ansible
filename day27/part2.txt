@@ -1,0 +1,41 @@
+1 conroll node   500 manage node >>  apache 2 on manage node via conroll
+
+
+host.ini >> 
+
+
+[webservers]
+web1.example.com
+web2.example.com
+
+[databases]
+db1.example.com
+db2.example.com
+
+190.90.01.1
+
+
+
+playbook.yml  >>>>
+
+1 conroll node   500 manage node >>  apache 2 on manage node via conroll
+
+apt  install apachec2>>> systemctl stast apache2  >>  
+
+
+.yml  this is the extention of playbook 
+
+playbook.yml
+bharathi.yml
+statging,yml
+prod.yml
+
+
+
+we are installed apache2 on our manage node >>>>>
+
+now 2nd task we need to uninstall >>> apache2
+
+
+
+
