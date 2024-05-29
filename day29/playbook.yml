@@ -1,0 +1,10 @@
+ - name: connectivy checkup
+   hosts: prod
+   become: yes
+   tasks: 
+     - name: ping task
+       ping: 
+     - name: copy the file
+       copy:
+         src: ./readme
+         dest: /home/ubuntu/
