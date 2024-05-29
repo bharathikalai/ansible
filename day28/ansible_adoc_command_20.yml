@@ -1,0 +1,21 @@
+ansible staging -m ping -i host.ini
+ansible staging -m setup -i host.ini
+ansible staging -m setup -a "filter=ansible_all_ipv4_addresses" -i  host.ini
+ansible staging -m shell -a "date" -i host.ini
+ansible staging -m apt -a "name=apache2 state=present" -b -i host.ini
+ansible staging -m yum -a "name=apache2 state=latest" -b -i host.ini
+ansible staging -m copy -a "src=./test.txt dest=/home/ubuntu/test.txt" -b -i host.ini
+ansible staging -m fetch -a "src=./test.txt dest=/home/ubuntu/test.txt" -b -i host.ini
+ansible staging -m user -a "name=new_user" -b -i host.ini
+ansible staging -m user -a "name=new_user state=absent" -b -i host.ini
+ansible staging -m file -a "dest=/filepath mode=0644" -b -i host.ini
+ansible staging -m service -a "name=apache2 state=restarted" -b  -i host.ini
+ansible staging -m command  -a "reboot" -b -i host.ini
+ansible staging -m setup --tree /test.txt -b -i host.ini
+ansible staging -m file -a "dest=/folderpath state=directory" -b -i host.ini
+ansible staging -m shell -a "cat ~/.ssh/*.pub" -b -i host.ini
+ansible staging -m synchronize -a "src=folderpath dest=folderpath" -b -i host.ini
+ansible staging -m pip -a "name=packagename state=present" -b -i host.ini 
+ansible staging -m ufw -a "rule='allow http' state=present" -b -i host.ini
+ansible staging -m script -a "/path of that script" -b host.ini
+ansible staging -m docker_container -a "name=my_container image=my_image state=started" -b -i host.ini
