@@ -1,0 +1,9 @@
+author: John Doe
+email: john@example.com
+
+
+# Inside meta/main.yml
+
+dependencies:
+  - role: common
+  - role: database

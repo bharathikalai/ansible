@@ -1,0 +1,9 @@
+# Apache Configuration File
+ServerRoot {{ webserver_document_root }}
+
+Listen {{ webserver_port }}
+
+DocumentRoot "{{ webserver_document_root }}"
+
+ErrorLog "{{ webserver_log_path }}/error.log"
+CustomLog "{{ webserver_log_path }}/access.log" combined

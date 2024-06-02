@@ -1,0 +1,12 @@
+---
+- name: Ensure Apache is installed
+  apt:
+    name: "{{ webserver_package }}"
+    state: present
+  become: yes
+
+- name: Configure Apache
+  template:
+    src: apache.conf.j2
+    dest: "{{ webserver_config_path }}"
+  notify: Restart Apache

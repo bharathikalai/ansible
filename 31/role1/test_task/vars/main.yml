@@ -1,0 +1,5 @@
+---
+# Internal configuration variables for the webserver role
+webserver_port: 80
+webserver_document_root: "/var/www/html"
+webserver_log_path: "/var/log/webserver"
